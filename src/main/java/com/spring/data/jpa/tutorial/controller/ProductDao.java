@@ -26,7 +26,7 @@ public class ProductDao {
     // -------------------Create a Product-------------------------------------------
     @RequestMapping(value = "/products/", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity createProduct(@RequestBody Product product) throws SQLException, ClassNotFoundException {
-        logger.info("Creating Product : {}", product);
+        logger.info("Creating Product : ", product);
 
         productRepo.save(product);
         return new ResponseEntity<>(product, HttpStatus.CREATED);
@@ -68,7 +68,7 @@ public class ProductDao {
 
         productRepo.deleteAll();
         return new ResponseEntity<Product>(HttpStatus.NO_CONTENT);
-    }//Sampai sini aman
+    }
 
     // ------------------- Delete a Product-----------------------------
     @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
